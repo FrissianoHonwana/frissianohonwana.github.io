@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frissiano Honwana | Biostatistician</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* ── HUGO ACADEMIC / WOWCHEMY-INSPIRED THEME ── */
+:root {
+  --bg:        #ffffff;
+  --bg2:       #f5f5f5;
+  --surface:   #ffffff;
+  --surface2:  #f7f7f7;
+  --border:    #e0e0e0;
+  --text:      #2b2b2b;
+  --text2:     #555555;
+  --text3:     #9e9e9e;
+  --primary:   #1565c0;
+  --primary-d: #0d47a1;
+  --primary-l: #e3eaf6;
+  --nav-bg:    #E8EDF2;
+  --nav-text:  #3a4a5c;
+  --nav-act:   #1565c0;
+  --nav-h:     60px;
+  --max:       960px;
+  --tr:        0.22s ease;
+}
+[data-theme="dark"] {
+  --bg:        #1a1a2e;
+  --bg2:       #16213e;
+  --surface:   #1e2a3a;
+  --surface2:  #243040;
+  --border:    #2e3f54;
+  --text:      #e0e0e0;
+  --text2:     #a0aab4;
+  --text3:     #6a7a8a;
+  --primary:   #4d90fe;
+  --primary-d: #1a6eff;
+  --primary-l: #162035;
+  --nav-bg:    #1e2a3a;
+  --nav-text:  rgba(255,255,255,0.75);
+  --nav-act:   #4d90fe;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Roboto',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:background var(--tr),color var(--tr);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ── NAVBAR ── */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  height:var(--nav-h);
+  background:var(--nav-bg);
+  z-index:200;
+  display:flex;align-items:center;
+  padding:0 1.5rem;
+  box-shadow:0 1px 4px rgba(0,0,0,0.12);
+  border-bottom:1px solid #cdd5de;
+  transition:background var(--tr);
+}
+.nav-brand{
+  font-family:'Montserrat',sans-serif;
+  font-size:1.05rem;font-weight:700;
+  color:var(--primary);text-decoration:none;
+  margin-right:1.5rem;white-space:nowrap;
+  letter-spacing:0.01em;flex-shrink:0;
+}
+.nav-links{
+  display:flex;align-items:center;
+  list-style:none;flex:1;
+  overflow-x:auto;scrollbar-width:none;
+}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-links li a{
+  display:block;
+  padding:0 0.72rem;
+  height:var(--nav-h);line-height:var(--nav-h);
+  font-size:0.8rem;font-weight:500;
+  letter-spacing:0.04em;text-transform:uppercase;
+  color:var(--nav-text);text-decoration:none;
+  cursor:pointer;white-space:nowrap;
+  border-bottom:3px solid transparent;
+  transition:color var(--tr),border-color var(--tr);
+}
+.nav-links li a:hover{color:var(--nav-act);}
+.nav-links li a.active{color:var(--nav-act);border-bottom-color:var(--nav-act);}
+
+.nav-icons{display:flex;align-items:center;gap:0.2rem;margin-left:auto;flex-shrink:0;}
+.nav-icon-btn{
+  width:36px;height:36px;border:none;
+  background:transparent;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;color:var(--nav-text);
+  transition:background var(--tr),color var(--tr);
+}
+.nav-icon-btn:hover{background:rgba(21,101,192,0.1);color:var(--primary);}
+
+/* ── SEARCH OVERLAY ── */
+.search-overlay{
+  display:none;position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.6);z-index:500;
+  align-items:flex-start;justify-content:center;
+  padding-top:8rem;
+}
+.search-overlay.open{display:flex;}
+.search-box{
+  background:var(--surface);border-radius:8px;
+  padding:1.5rem;width:100%;max-width:600px;
+  margin:0 1rem;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+.search-box input{
+  width:100%;padding:0.75rem 1rem;
+  font-size:1.05rem;font-family:'Roboto',sans-serif;
+  border:2px solid var(--primary);border-radius:6px;
+  background:var(--bg);color:var(--text);outline:none;
+}
+.search-hint{font-size:0.76rem;color:var(--text3);margin-top:0.55rem;text-align:center;}
+.search-results{margin-top:0.9rem;}
+.search-result-item{
+  padding:0.55rem 0.75rem;border-radius:6px;cursor:pointer;
+  display:flex;align-items:center;gap:0.7rem;
+  font-size:0.87rem;color:var(--text);
+  transition:background var(--tr);
+}
+.search-result-item:hover{background:var(--primary-l);color:var(--primary);}
+.sri-icon{color:var(--primary);font-weight:700;font-size:1rem;}
+
+/* ── MAIN ── */
+main{
+  flex:1;max-width:var(--max);
+  margin:0 auto;width:100%;
+  padding:calc(var(--nav-h) + 2.5rem) 1.5rem 3rem;
+}
+.section{display:none;}
+.section.active{display:block;}
+
+/* ── PROFILE (Hugo Academic style) ── */
+.ha-profile{display:flex;gap:2rem;margin-bottom:2.5rem;}
+.ha-avatar-col{
+  display:flex;flex-direction:column;
+  align-items:center;gap:0.75rem;
+  flex-shrink:0;width:200px;
+}
+.ha-avatar{
+  width:160px;height:160px;border-radius:50%;
+  object-fit:cover;border:4px solid var(--border);
+  background:var(--primary-l);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Montserrat',sans-serif;
+  font-size:3rem;font-weight:700;color:var(--primary);
+}
+.ha-social{display:flex;gap:0.45rem;flex-wrap:wrap;justify-content:center;}
+.ha-social a{
+  display:flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--text2);text-decoration:none;
+  transition:all var(--tr);
+}
+.ha-social a:hover{background:var(--primary);border-color:var(--primary);color:#fff;}
+.ha-social svg{width:15px;height:15px;}
+.ha-info{flex:1;padding-top:0.4rem;}
+.ha-name{
+  font-family:'Montserrat',sans-serif;
+  font-size:1.9rem;font-weight:700;
+  color:var(--text);margin-bottom:0.25rem;
+  letter-spacing:-0.01em;
+}
+.ha-role{font-size:1rem;font-weight:400;color:var(--text2);margin-bottom:0.15rem;}
+.ha-org{font-size:0.88rem;color:var(--text3);margin-bottom:1.1rem;}
+.ha-bio{font-size:0.93rem;line-height:1.75;color:var(--text2);margin-bottom:1.4rem;}
+.ha-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.ha-meta-block h4{
+  font-family:'Montserrat',sans-serif;
+  font-size:0.77rem;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;
+  color:var(--text);margin-bottom:0.5rem;
+}
+.ha-meta-list{list-style:none;}
+.ha-meta-list li{
+  display:flex;align-items:flex-start;gap:0.5rem;
+  font-size:0.87rem;color:var(--text2);
+  margin-bottom:0.3rem;line-height:1.4;
+}
+.ha-meta-list li::before{
+  content:'›';color:var(--primary);
+  font-weight:700;font-size:1rem;line-height:1.2;flex-shrink:0;
+}
+
+/* ── SECTION HEADER ── */
+.sec-header{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:1.6rem;padding-bottom:0.7rem;
+  border-bottom:1px solid var(--border);
+}
+.sec-header h2{
+  font-family:'Montserrat',sans-serif;
+  font-size:1.35rem;font-weight:600;
+  color:var(--text);letter-spacing:-0.01em;
+}
+.sec-intro{
+  font-size:0.91rem;color:var(--text2);
+  line-height:1.7;margin-bottom:1.6rem;max-width:640px;
+}
+.sec-intro a{color:var(--primary);}
+
+/* ── CARD ── */
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:1.2rem 1.35rem;
+  margin-bottom:1rem;
+  transition:border-color var(--tr),box-shadow var(--tr);
+}
+.card:hover{border-color:var(--primary);box-shadow:0 2px 12px rgba(21,101,192,0.1);}
+.card-badge{
+  display:inline-block;padding:0.14rem 0.52rem;
+  border-radius:4px;font-size:0.69rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.06em;
+  margin-bottom:0.45rem;
+  background:var(--primary-l);color:var(--primary);
+}
+.card-title{
+  font-family:'Montserrat',sans-serif;font-size:1rem;
+  font-weight:600;color:var(--text);
+  margin-bottom:0.3rem;line-height:1.4;
+}
+.card-meta{font-size:0.81rem;color:var(--text3);margin-bottom:0.55rem;}
+.card-body{font-size:0.88rem;line-height:1.72;color:var(--text2);}
+.tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.7rem;}
+.tag{
+  padding:0.2rem 0.58rem;
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--text2);border-radius:4px;
+  font-size:0.74rem;font-weight:500;
+}
+
+/* ── EMPTY STATE ── */
+.empty{
+  text-align:center;padding:3rem 2rem;
+  color:var(--text3);border:1px dashed var(--border);
+  border-radius:8px;font-size:0.87rem;
+  line-height:1.7;font-style:italic;
+}
+
+/* ── PUBLICATIONS ── */
+.pub-item{
+  display:flex;gap:1.2rem;
+  padding:1rem 0;border-bottom:1px solid var(--border);
+}
+.pub-item:last-child{border-bottom:none;}
+.pub-year{
+  font-size:0.82rem;font-weight:600;
+  color:var(--primary);min-width:44px;
+  padding-top:0.1rem;
+  font-family:'Montserrat',sans-serif;
+}
+.pub-content{flex:1;}
+.pub-title{font-size:0.92rem;font-weight:500;color:var(--text);margin-bottom:0.2rem;line-height:1.45;}
+.pub-authors{font-size:0.8rem;color:var(--text3);margin-bottom:0.15rem;}
+.pub-journal{font-size:0.8rem;color:var(--text2);font-style:italic;margin-bottom:0.4rem;}
+.pub-links{display:flex;gap:0.4rem;flex-wrap:wrap;}
+.pub-btn{
+  display:inline-block;padding:0.18rem 0.55rem;
+  border:1px solid var(--primary);border-radius:4px;
+  font-size:0.71rem;font-weight:500;
+  color:var(--primary);text-decoration:none;
+  transition:all var(--tr);
+}
+.pub-btn:hover{background:var(--primary);color:#fff;}
+
+/* ── BLOG ── */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;}
+.blog-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;cursor:pointer;
+  transition:border-color var(--tr),box-shadow var(--tr);
+}
+.blog-card:hover{border-color:var(--primary);box-shadow:0 4px 16px rgba(21,101,192,0.12);}
+.blog-thumb{
+  width:100%;height:130px;
+  background:var(--primary-l);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.5rem;color:var(--primary);
+}
+.blog-card-body{padding:0.9rem 1.1rem 1.1rem;}
+.blog-date{font-size:0.73rem;color:var(--text3);margin-bottom:0.3rem;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:0.05em;}
+.blog-title{font-family:'Montserrat',sans-serif;font-size:0.93rem;font-weight:600;color:var(--text);margin-bottom:0.35rem;line-height:1.4;}
+.blog-excerpt{font-size:0.81rem;color:var(--text2);line-height:1.6;}
+
+/* ── NEWS ── */
+.news-item{display:flex;gap:1.4rem;padding:0.95rem 0;border-bottom:1px solid var(--border);}
+.news-item:last-child{border-bottom:none;}
+.news-date{font-size:0.79rem;color:var(--text3);white-space:nowrap;padding-top:0.12rem;min-width:76px;font-family:'Montserrat',sans-serif;}
+.news-content{flex:1;}
+.news-content p{font-size:0.87rem;line-height:1.65;color:var(--text2);}
+.news-badge{
+  display:inline-block;padding:0.1rem 0.45rem;
+  border-radius:3px;font-size:0.67rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.28rem;
+  background:var(--primary-l);color:var(--primary);
+}
+
+/* ── CONSULTATION ── */
+.alert-box{
+  background:var(--primary-l);border-left:4px solid var(--primary);
+  border-radius:0 6px 6px 0;padding:0.85rem 1.1rem;
+  font-size:0.87rem;line-height:1.7;color:var(--text2);margin-bottom:1.75rem;
+}
+.alert-box strong{color:var(--primary);}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+.svc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.15rem 1.25rem;transition:border-color var(--tr);}
+.svc:hover{border-color:var(--primary);}
+.svc-icon{font-size:1.35rem;margin-bottom:0.45rem;display:block;}
+.svc-name{font-family:'Montserrat',sans-serif;font-size:0.9rem;font-weight:600;color:var(--text);margin-bottom:0.35rem;}
+.svc-desc{font-size:0.81rem;line-height:1.65;color:var(--text2);}
+.svc ul{font-size:0.79rem;color:var(--text2);padding-left:1.1rem;line-height:1.9;margin-top:0.4rem;}
+.info-block{background:var(--surface2);border-radius:8px;padding:1.05rem 1.25rem;margin-bottom:0.9rem;}
+.info-block h3{font-family:'Montserrat',sans-serif;font-size:0.87rem;font-weight:600;color:var(--text);margin-bottom:0.38rem;}
+.info-block p{font-size:0.84rem;line-height:1.7;color:var(--text2);}
+.pill-row{display:flex;flex-wrap:wrap;gap:0.42rem;margin-top:0.55rem;}
+.pill{padding:0.22rem 0.65rem;border:1px solid var(--border);border-radius:20px;font-size:0.77rem;color:var(--text2);background:var(--surface);}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.75rem;}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;text-align:center;transition:border-color var(--tr);}
+.contact-card:hover{border-color:var(--primary);}
+.c-icon{font-size:1.55rem;margin-bottom:0.45rem;display:block;}
+.c-label{font-size:0.71rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);margin-bottom:0.28rem;}
+.c-val{font-size:0.87rem;color:var(--text);font-weight:500;}
+.c-val a{color:var(--primary);text-decoration:none;}
+.c-val a:hover{text-decoration:underline;}
+
+hr{border:none;border-top:1px solid var(--border);margin:2rem 0;}
+
+/* ── FOOTER ── */
+footer{
+  background:#E8EDF2;
+  border-top:1px solid #cdd5de;
+  color:#5a6a7a;
+  padding:0.9rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:0.77rem;flex-shrink:0;
+  transition:background var(--tr);
+}
+[data-theme="dark"] footer{
+  background:#1e2a3a;
+  border-top:1px solid #2e3f54;
+  color:rgba(255,255,255,0.45);
+}
+.footer-right a{color:#6a7a8a;text-decoration:none;margin-left:1rem;font-size:0.74rem;}
+.footer-right a:hover{color:var(--primary);}
+[data-theme="dark"] .footer-right a{color:rgba(255,255,255,0.4);}
+[data-theme="dark"] .footer-right a:hover{color:#4d90fe;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .ha-profile{flex-direction:column;}
+  .ha-avatar-col{width:100%;flex-direction:row;gap:1.5rem;align-items:flex-start;}
+  .ha-avatar{width:90px;height:90px;font-size:1.8rem;}
+  .ha-meta-grid,.service-grid,.contact-grid{grid-template-columns:1fr;}
+  .nav-brand{font-size:0.9rem;margin-right:0.75rem;}
+  .nav-links li a{padding:0 0.45rem;font-size:0.73rem;}
+  main{padding:calc(var(--nav-h) + 1.5rem) 1rem 2rem;}
+  .blog-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a class="nav-brand" href="#" onclick="showSection('home');return false;">F. Honwana</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a onclick="showSection('projects')">Projects</a></li>
+    <li><a onclick="showSection('publications')">Publications</a></li>
+    <li><a onclick="showSection('talks')">Talks &amp; Posters</a></li>
+    <li><a onclick="showSection('blog')">Blog</a></li>
+    <li><a onclick="showSection('teaching')">Teaching</a></li>
+    <li><a onclick="showSection('consultation')">Consultation</a></li>
+    <li><a onclick="showSection('contact')">Contact</a></li>
+  </ul>
+  <div class="nav-icons">
+    <!-- Search -->
+    <button class="nav-icon-btn" onclick="toggleSearch()" title="Search (Ctrl+K)" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </button>
+    <!-- Half-moon / sun toggle -->
+    <button class="nav-icon-btn" onclick="toggleTheme()" id="theme-btn" title="Toggle dark mode" aria-label="Toggle dark mode">
+      <!-- Moon (shown in light mode) -->
+      <svg id="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <!-- Sun (shown in dark mode) -->
+      <svg id="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none;">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay" onclick="closeSearch(event)">
+  <div class="search-box" onclick="event.stopPropagation()">
+    <input type="text" id="search-input" placeholder="Search pages…" oninput="doSearch(this.value)" autocomplete="off">
+    <div class="search-hint">Press <kbd>Esc</kbd> to close &nbsp;·&nbsp; <kbd>Ctrl+K</kbd> to open</div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main>
+
+  <!-- HOME -->
+  <section class="section active" id="sec-home">
+    <div class="ha-profile">
+      <div class="ha-avatar-col">
+        <div class="ha-avatar">FH</div>
+        <!-- To add your photo, replace the div above with:
+             <img class="ha-avatar" src="images/FHonwana.png" alt="Frissiano Honwana"> -->
+        <div class="ha-social">
+          <a href="https://github.com/frissianohonwana" target="_blank" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </a>
+          <a href="mailto:frissianohonwana@gmail.com" title="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a href="#" onclick="showSection('consultation');return false;" title="Consulting">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="ha-info">
+        <h1 class="ha-name">Frissiano Honwana</h1>
+        <p class="ha-role">Biostatistician &amp; Epidemiologist</p>
+        <p class="ha-org">PhD in Biostatistics</p>
+        <p class="ha-bio">My research focuses on prediction modelling using biomarkers, with the goal of improving healthcare outcomes through advanced statistical techniques. I work at the intersection of biomarker science and precision medicine — developing and refining models that improve disease prediction and patient care, advancing diagnostic accuracy and optimising treatment strategies.</p>
+        <div class="ha-meta-grid">
+          <div class="ha-meta-block">
+            <h4>Research Interests</h4>
+            <ul class="ha-meta-list">
+              <li>Prediction modelling</li>
+              <li>Biomarker research</li>
+              <li>Survival analysis</li>
+              <li>Precision medicine</li>
+              <li>Risk score development</li>
+            </ul>
+          </div>
+          <div class="ha-meta-block">
+            <h4>Education</h4>
+            <ul class="ha-meta-list">
+              <li>PhD, Biostatistics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="sec-projects">
+    <div class="sec-header"><h2>Projects</h2></div>
+    <p class="sec-intro">Current and past research projects in biostatistics and epidemiology.</p>
+    <div class="card">
+      <span class="card-badge">Ongoing</span>
+      <div class="card-title">Biomarker-Based Prediction Modelling</div>
+      <div class="card-meta">PhD Research</div>
+      <p class="card-body">Development and validation of prognostic models integrating biomarker data to improve disease prediction and patient stratification. This work applies advanced survival analysis and machine learning techniques to real-world clinical datasets, with a focus on translating findings into clinically actionable tools that support precision medicine.</p>
+      <div class="tags">
+        <span class="tag">Prediction Models</span>
+        <span class="tag">Biomarkers</span>
+        <span class="tag">Survival Analysis</span>
+        <span class="tag">Machine Learning</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="section" id="sec-publications">
+    <div class="sec-header"><h2>Publications</h2></div>
+    <p class="sec-intro">Peer-reviewed articles, preprints, and other scholarly outputs. You can also find my work on <a href="#">Google Scholar</a>.</p>
+    <div class="empty">Publications will be listed here as they are added.</div>
+    <!--
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div class="pub-content">
+        <div class="pub-title">Title of Paper</div>
+        <div class="pub-authors">Honwana F, Co-author A, Co-author B</div>
+        <div class="pub-journal">Journal Name, Volume(Issue), Pages</div>
+        <div class="pub-links">
+          <a class="pub-btn" href="#">PDF</a>
+          <a class="pub-btn" href="#">DOI</a>
+          <a class="pub-btn" href="#">Cite</a>
+        </div>
+      </div>
+    </div>
+    -->
+  </section>
+
+  <!-- TALKS & POSTERS -->
+  <section class="section" id="sec-talks">
+    <div class="sec-header"><h2>Talks &amp; Posters</h2></div>
+    <p class="sec-intro">Conference presentations, invited talks, and poster presentations.</p>
+    <div class="empty">Presentations will be listed here as they are added.</div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="section" id="sec-blog">
+    <div class="sec-header"><h2>Blog</h2></div>
+    <p class="sec-intro">Articles, tutorials, and reflections on biostatistics, epidemiology, and research methods.</p>
+    <div class="empty">Blog posts coming soon.</div>
+    <!--
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-thumb">📊</div>
+        <div class="blog-card-body">
+          <div class="blog-date">Jan 2026</div>
+          <div class="blog-title">Getting started with survival analysis in R</div>
+          <p class="blog-excerpt">A practical introduction to Kaplan–Meier curves and Cox proportional hazards models.</p>
+        </div>
+      </div>
+    </div>
+    -->
+  </section>
+
+  <!-- TEACHING -->
+  <section class="section" id="sec-teaching">
+    <div class="sec-header"><h2>Teaching</h2></div>
+    <p class="sec-intro">Courses taught, guest lectures, workshops, and other educational activities.</p>
+    <div class="empty">Teaching activities will be listed here.</div>
+  </section>
+
+  <!-- CONSULTATION -->
+  <section class="section" id="sec-consultation">
+    <div class="sec-header"><h2>Consultation</h2></div>
+    <p class="sec-intro">Comprehensive epidemiology and biostatistics consulting is offered to support researchers at every stage — from initial design through to final reporting.</p>
+
+    <div class="alert-box">
+      <strong>Early engagement is strongly encouraged.</strong> Ideally, clients should make contact before the project begins. An initial scoping consultation is offered at no charge to assess your needs and tailor the support to your specific project.
+    </div>
+
+    <div class="service-grid">
+      <div class="svc">
+        <span class="svc-icon">📐</span>
+        <div class="svc-name">Research Design</div>
+        <p class="svc-desc">Expert guidance on study design, sample size calculation, and data collection strategies to ensure your research is methodologically sound from the outset.</p>
+      </div>
+      <div class="svc">
+        <span class="svc-icon">🗃️</span>
+        <div class="svc-name">Data Management</div>
+        <p class="svc-desc">Practical support for data capturing, cleaning, and management to maintain data integrity throughout your project.</p>
+      </div>
+      <div class="svc" style="grid-column:1/-1;">
+        <span class="svc-icon">📊</span>
+        <div class="svc-name">Statistical Analysis</div>
+        <p class="svc-desc">A full range of statistical analyses and support with data interpretation:</p>
+        <ul>
+          <li>Descriptive and quantitative analysis</li>
+          <li>Hypothesis testing and statistical inference</li>
+          <li>Regression analysis</li>
+          <li>Longitudinal and survival analysis</li>
+          <li>Risk score development and predictive modelling</li>
+          <li>Data interpretation and analytical report writing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <h3>Who We Work With</h3>
+      <p>Consulting services are available to researchers across all career stages.</p>
+      <div class="pill-row">
+        <span class="pill">Honours students</span>
+        <span class="pill">Research Masters</span>
+        <span class="pill">PhD candidates</span>
+        <span class="pill">Postdoctoral researchers</span>
+        <span class="pill">Academic &amp; research staff</span>
+      </div>
+    </div>
+    <div class="info-block">
+      <h3>Fees</h3>
+      <p>Services are provided on a cost-recovery basis and billed at an hourly rate (available upon request). Full payment is required before work commences. Services are subject to availability, and the right to decline or terminate engagements is reserved.</p>
+    </div>
+    <div class="info-block">
+      <h3>Scoping Consultation</h3>
+      <p>An initial, no-charge meeting is used to assess your research needs and determine the scope of support required before formally engaging the consulting unit.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="sec-contact">
+    <div class="sec-header"><h2>Contact</h2></div>
+    <p class="sec-intro">To request consulting services or enquire about collaboration, please reach out via email. I look forward to supporting your research.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="c-icon">✉️</span>
+        <div class="c-label">Email</div>
+        <div class="c-val"><a href="mailto:frissianohonwana@gmail.com">frissianohonwana@gmail.com</a></div>
+      </div>
+      <div class="contact-card">
+        <span class="c-icon">💻</span>
+        <div class="c-label">GitHub</div>
+        <div class="c-val"><a href="https://github.com/frissianohonwana" target="_blank">frissianohonwana</a></div>
+      </div>
+    </div>
+    <div class="info-block">
+      <h3>Consulting Enquiries</h3>
+      <p>To request a scoping consultation, please email with a brief description of your project and timeline. All enquiries are responded to within 3–5 business days.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span>Copyright &copy; 2026 Frissiano Honwana. All Rights Reserved.</span>
+  <div class="footer-right">
+    <a href="#" onclick="showSection('contact');return false;">Contact</a>
+    <a href="https://github.com/frissianohonwana" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+const SECTIONS = ['home','projects','publications','talks','blog','teaching','consultation','contact'];
+
+function showSection(id) {
+  SECTIONS.forEach(s => {
+    const el = document.getElementById('sec-' + s);
+    if (el) el.classList.remove('active');
+  });
+  const t = document.getElementById('sec-' + id);
+  if (t) t.classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.remove('active');
+    const fn = a.getAttribute('onclick') || '';
+    if (fn.includes("'" + id + "'")) a.classList.add('active');
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* Theme */
+function toggleTheme() {
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+  document.getElementById('icon-moon').style.display = dark ? 'block' : 'none';
+  document.getElementById('icon-sun').style.display  = dark ? 'none'  : 'block';
+  localStorage.setItem('fh-theme', dark ? 'light' : 'dark');
+}
+(function(){
+  const s = localStorage.getItem('fh-theme');
+  if (s === 'dark') {
+    document.documentElement.setAttribute('data-theme','dark');
+    document.getElementById('icon-moon').style.display = 'none';
+    document.getElementById('icon-sun').style.display  = 'block';
+  }
+})();
+
+/* Search */
+const SEARCH_INDEX = [
+  {title:'Home / About',        sec:'home',         kw:'frissiano honwana biostatistician research precision medicine'},
+  {title:'Projects',            sec:'projects',     kw:'projects biomarker prediction modelling machine learning'},
+  {title:'Publications',        sec:'publications', kw:'publications papers journal articles preprints google scholar'},
+  {title:'Talks & Posters',     sec:'talks',        kw:'talks posters presentations conference'},
+  {title:'Blog',                sec:'blog',         kw:'blog posts articles tutorials biostatistics R'},
+  {title:'Teaching',            sec:'teaching',     kw:'teaching courses lectures workshops'},
+  {title:'Consultation',        sec:'consultation', kw:'consulting epidemiology biostatistics services fees design analysis'},
+  {title:'Contact',             sec:'contact',      kw:'contact email github'},
+];
+
+function toggleSearch() {
+  const o = document.getElementById('search-overlay');
+  const open = o.classList.toggle('open');
+  if (open) document.getElementById('search-input').focus();
+  else { document.getElementById('search-input').value=''; document.getElementById('search-results').innerHTML=''; }
+}
+function closeSearch(e) {
+  if (e.target === document.getElementById('search-overlay')) {
+    document.getElementById('search-overlay').classList.remove('open');
+    document.getElementById('search-input').value='';
+    document.getElementById('search-results').innerHTML='';
+  }
+}
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q.trim()) { res.innerHTML=''; return; }
+  const hits = SEARCH_INDEX.filter(i =>
+    (i.title + ' ' + i.kw).toLowerCase().includes(q.toLowerCase())
+  );
+  if (!hits.length) {
+    res.innerHTML='<div style="font-size:0.84rem;color:var(--text3);text-align:center;padding:0.75rem">No results found.</div>';
+    return;
+  }
+  res.innerHTML = hits.map(h =>
+    `<div class="search-result-item" onclick="showSection('${h.sec}');toggleSearch();">
+      <span class="sri-icon">›</span>${h.title}
+    </div>`
+  ).join('');
+}
+document.addEventListener('keydown', e => {
+  if ((e.key==='k'&&(e.ctrlKey||e.metaKey))||e.key==='/') { e.preventDefault(); toggleSearch(); }
+  if (e.key==='Escape') {
+    const o = document.getElementById('search-overlay');
+    if (o.classList.contains('open')) {
+      o.classList.remove('open');
+      document.getElementById('search-input').value='';
+      document.getElementById('search-results').innerHTML='';
+    }
+  }
+});
+
+/* Hash routing */
+const hash = window.location.hash.replace('#','');
+if (hash && SECTIONS.includes(hash)) showSection(hash);
+</script>
+</body>
+</html>
