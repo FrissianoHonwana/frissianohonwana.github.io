@@ -1,24 +1,11 @@
 # Basic Site Settings
-title: Frissiano Honwana
+title: Frissiano Honwana | Biostatistician
 logo: /images/FHonwana.png
+description: Biostatistician specialising in prediction modelling
+url: "https://frissianohonwana.github.io"
+
 #show_downloads: true
-theme: jekyll-theme-minimal
-description: Biostatistician 🧩 | Division of Epidemiology & Biostatistics | School of Public Health University of Cape Town Interests: Football ⚽️ & Combat Sports🥋🥊
-url: https://frissianohonwana.github.io
-repository: frissianohonwana/frissianohonwana.github.io
+theme: ~
+remote_theme: ~
 
-# Site Author - The following control what appear as part of the author content on the side bar.
-#               If a field is blank the icon and link will not appear, otherwise it will be shown.
-#               Additional customization can be done by editing /_includes/author-profile.html
-author:
-  # Biographic information
-  avatar: /images/FHonwana.png
-  name: Frissiano Honwana
-  pronouns: He/Him  
-  #bio: "Short biography for the left-hand sidebar"
-  location: South Africa
-  employer: University of Cape Town
-  #url: # URL
-  email: frissiano.honwana@uct.ac.za 
-
-
+plugins: []
